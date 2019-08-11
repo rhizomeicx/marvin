@@ -30,6 +30,7 @@ namespace Marvin_Windows
                               .CreateLogger();
 
             _marvin = new Marvin.Marvin(appSettings, logger);
+            //adding this within a Task thread or Windows Services keeps Marvin stuck in 'Starting'
             Task.Run(() => Initialise());
         }
         private void Initialise()
