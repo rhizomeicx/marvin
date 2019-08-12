@@ -7,6 +7,9 @@ using Microsoft.Extensions.Configuration;
 using SharedEntities;
 using Serilog;
 using Serilog.Core;
+using SharedEntities;
+using IconSDK;
+using IconSDK.RPCs;
 
 namespace Marvin
 {
@@ -25,7 +28,17 @@ namespace Marvin
 
         public void Run()
         {
+            var getLastBlock = GetLastBlock.Create(Consts.ApiUrl.TestNet);
+            var lastBlock = getLastBlock().Result;
+
+            var getBlockByHeight = GetBlockByHeight.Create(Consts.ApiUrl.TestNet);
+            var blockByHeight =  getBlockByHeight(lastBlock.Height.Value).Result;
+
             _logger.Information("Marvin Initialised fetching results...");
+
+            _logger.Information($"Lastest Block Hash:  {blockByHeight.Hash}");
+            _logger.Information($"Lastest Block Height:  {blockByHeight.Height}");
+            _logger.Information($"Lastest Block Signature:  {blockByHeight.Signature}");
         }
     }
 }

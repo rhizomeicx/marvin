@@ -26,7 +26,7 @@ namespace Marvin_Ubuntu
             }
             catch (Exception ex)
             {
-                Log.Error(ex, $"GoogleCron app failed with error: {ex.Message}");
+                Log.Error(ex, $"I think you ought to know I'm feeling very depressed : {ex.Message}");
             }
             finally
             {
@@ -45,7 +45,8 @@ namespace Marvin_Ubuntu
 
             var appSettingsContent = File.ReadAllText(appSettingsFilePath);
             if (string.IsNullOrEmpty(appSettingsContent))
-                throw new Exception("Appsettings file is empty");
+                throw new Exception("Do you want me to sit in a corner and rust, or just fall apart where I’m standing? \n" +
+                                     "BTW the appsettings.json file is empty dummy");
 
             return JsonConvert.DeserializeObject<AppSettings>(appSettingsContent);
         }
