@@ -27,6 +27,12 @@
 </ItemGroup>
 
 <ItemGroup>
+  <None Update="appsettings.json">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+</ItemGroup>
+
+<ItemGroup>
   <PackageReference Update="Microsoft.NETCore.App" Version="2.2.6" />
 </ItemGroup>
   
