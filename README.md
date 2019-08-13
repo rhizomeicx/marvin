@@ -1,7 +1,7 @@
 <p align="center">
   <img 
-    src="https://rhizomeicx.com/content/images/size/w2000/2019/05/20190501_RHIZOME-SPACE.jpg" 
-    width="640px"
+    src="https://avatars1.githubusercontent.com/u/53635700?s=400&v=4" 
+    width="180px"
     alt="Rhizome logo">
 </p>
 
