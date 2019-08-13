@@ -1,6 +1,7 @@
 ﻿using IconSDK;
 using IconSDK.Account;
 using IconSDK.Blockchain;
+using IconSDK.Crypto;
 using IconSDK.Helpers;
 using IconSDK.RPCs;
 using IconSDK.Types;
@@ -35,7 +36,9 @@ namespace Marvin
             var meanPrices = GetMeanPrices();
             var tx = CreateTransaction(meanPrices);
             var result = UpdateDaedric(tx);
-            _logger.Information(JsonConvert.SerializeObject(result));
+            var getTransactionByHash = new GetTransactionByHash(_appsetting.Yeouido_url);
+            var postResult = getTransactionByHash.Invoke(result).Result;
+            _logger.Information(JsonConvert.SerializeObject(postResult));
         }
 
         private long GetMeanPrices()
@@ -69,7 +72,7 @@ namespace Marvin
 
         private Hash32 UpdateDaedric(Transaction tx)
         {
-            var transactionRequest = SendTransaction.Create("https://bicon.net.solidwallet.io/api/v3");
+            var transactionRequest = SendTransaction.Create(_appsetting.Yeouido_url);
             var sendResponse = transactionRequest.Invoke(tx).Result;
 
             return sendResponse;
