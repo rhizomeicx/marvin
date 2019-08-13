@@ -52,14 +52,13 @@ namespace Marvin
         {
             var builder = new CallTransactionBuilder
             {
-                NID = NumericsHelper.ICX2Loop("3"),
+                NID = 3,
                 PrivateKey = GetPrivateKey(),
                 To = _appsetting.Yeouido_Daedric_Address,
                 StepLimit = NumericsHelper.ICX2Loop("0.000000001"),
                 Method = "post"
             };
-            builder.Params["to"] = _appsetting.Yeouido_Daedric_Address;
-            builder.Params["value"] = BigInteger.Parse(price.ToString());
+            builder.Params["value"] = price.ToString();
 
             var tax = builder.Build();
 
