@@ -29,7 +29,7 @@ namespace Marvin_Windows
                               .WriteTo.File(appSettings.LogPath, rollingInterval: RollingInterval.Day, rollOnFileSizeLimit: true)
                               .CreateLogger();
 
-            _marvin = new Marvin.Marvin(appSettings, logger);
+            _marvin = new Marvin.Marvin(appSettings, logger, args[0]);
             //adding this within a Task thread or Windows Services keeps Marvin stuck in 'Starting'
             Task.Run(() => Initialise());
         }
