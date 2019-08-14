@@ -54,7 +54,7 @@ default should look like this:
 <pre> 
 {
   "LogPath": "/home/usr/Marvin/logs/log.log",
-  "Yeouido_Keystore": "/home/fir3fight/Marvin/config/yeouido/keystore/operator.icx",
+  "Yeouido_Keystore": "/home/usr/Marvin/config/yeouido/keystore/operator.icx",
   "Yeouido_Daedric_Address": "cx58ca994194cf0c6a2a68b789d81c70484a5675b3",
   "Yeouido_url": "https://bicon.net.solidwallet.io/api/v3"
 }
