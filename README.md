@@ -24,7 +24,7 @@ This is still a work in progress
   * [Run - (Ubuntu)](https://github.com/rhizomeicx/marvin#run-ubuntu)
 
 ## Prerequisites-Ubuntu
-__** At the moment this guide assumes you already have a keystore file created. I am working on a utility app that will allow you to generate a new keystore/wallet and interact with basic features.**__
+*At the moment this guide assumes you already have a keystore file created. I am working on a utility app that will allow you to generate a new keystore/wallet and interact with basic features.*
 
 **[Install .NET Core SDK]**
 
