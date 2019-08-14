@@ -16,6 +16,9 @@
 ## Table of Contents
 
   * [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-ubuntu)
+  * [Installation-Ubuntu](https://github.com/rhizomeicx/marvin#installation-ubuntu)
+
+
 
 ## Prerequisites-Ubuntu
 
@@ -35,7 +38,16 @@ sudo apt-get install dotnet-sdk-2.2
 </pre>
 
 
+## INSTALLATION-Ubuntu
 
-## INSTALLATION INSTRUCTIONS : TODO
+<pre> cd /Marvin/Marvin-Ubuntu </pre>
+
+**Build/Publish**
+<pre>
+dotnet build --runtime ubuntu.16.04-x64 --configuration Release
+</pre>
+
+
+
 
 ## RUN INSTRUCTIONS : TODO
