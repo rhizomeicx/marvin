@@ -38,7 +38,7 @@ sudo apt-get install dotnet-sdk-2.2
 </pre>
 
 
-## INSTALLATION-Ubuntu
+## Installation-Ubuntu
 
 <pre> cd /Marvin/Marvin-Ubuntu </pre>
 
@@ -48,6 +48,11 @@ dotnet build --runtime ubuntu.16.04-x64 --configuration Release
 </pre>
 
 
+## Run - Ubuntu
+I have yet to successfully run a .NET Core as a background Daemon on Ubuntu so next best thing is to have this run on a cronjob.
 
+<pre> crontab -e </pre>
 
-## RUN INSTRUCTIONS : TODO
+see example of the crontab that is run every hour
+
+<pre> 1 * * * * /usr/bin/dotnet /home/usr/Marvin-Ubuntu.dll </pre>
