@@ -13,8 +13,15 @@
 
 **Marvin** is a price feed application (bot) designed to provide an hourly price update to a Daedric SCORE running on the ICON Public Blockchain (see here: https://github.com/iconation/Daedric). Marvin has been written in .Net Core 2.2 and is able to be run on either Windows or Linux OS.
 
+## Table of Contents
 
-## TABLE OF CONTENTS : TODO
+  * [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites)
+
+## Prerequisites (Ubuntu)
+
+
+
+
 
 ## INSTALLATION INSTRUCTIONS : TODO
 
