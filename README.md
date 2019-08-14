@@ -24,15 +24,15 @@
 
 **Register Microsoft key and feed**
 <pre>
-wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
+$ wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+$ sudo dpkg -i packages-microsoft-prod.deb
 </pre>
 
 **Install the .NET SDK**
 <pre>
-sudo apt-get install apt-transport-https
-sudo apt-get update
-sudo apt-get install dotnet-sdk-2.2
+$ sudo apt-get install apt-transport-https
+$ sudo apt-get update
+$ sudo apt-get install dotnet-sdk-2.2
 </pre>
 
 
@@ -42,13 +42,13 @@ sudo apt-get install dotnet-sdk-2.2
 
 **Build/Publish**
 <pre>
-dotnet build --runtime ubuntu.16.04-x64 --configuration Release
+$ dotnet build --runtime ubuntu.16.04-x64 --configuration Release
 </pre>
 
 ## Configuration
 Marvin is designed to be driven via some appconfig.
 
-<pre> nano /Marvin/Marvin-Ubuntu/appsettings.json </pre>
+<pre>$ nano /Marvin/Marvin-Ubuntu/appsettings.json </pre>
 
 default should look like this:
 <pre> 
@@ -64,7 +64,7 @@ Update the configuration to meet your needs
 ## Run - Ubuntu
 I have yet to successfully run a .NET Core application as a background Daemon on Ubuntu so next best thing is to have this run from cron
 
-<pre> crontab -e </pre>
+<pre>4 crontab -e </pre>
 
 see example of the crontab that is run every hour
 
