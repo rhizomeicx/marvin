@@ -63,7 +63,7 @@ default should look like this:
 </pre>
 Update the configuration to meet your needs
 
-## Run - Ubuntu
+## Run-Ubuntu
 I have yet to successfully run a .NET Core application as a background Daemon on Ubuntu so next best thing is to have this run from cron
 
 <pre>4 crontab -e </pre>
