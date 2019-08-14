@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <RootNamespace>Marvin_Ubuntu</RootNamespace>
+	<RuntimeIdentifiers>win10-x64;ubuntu.16.04-x64</RuntimeIdentifiers> 
   </PropertyGroup>
 
   <ItemGroup>

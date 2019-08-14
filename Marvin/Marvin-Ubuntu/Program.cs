@@ -21,7 +21,7 @@ namespace Marvin_Ubuntu
                                   .WriteTo.File(appSettings.LogPath, rollingInterval: RollingInterval.Day, rollOnFileSizeLimit: true)
                                   .CreateLogger();
 
-                _marvin = new Marvin.Marvin(appSettings, logger);
+                _marvin = new Marvin.Marvin(appSettings, logger, args[0]);
                 _marvin.Run();
             }
             catch (Exception ex)
