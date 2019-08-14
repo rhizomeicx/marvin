@@ -15,7 +15,7 @@
 
 ## Table of Contents
 
-  * [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites)
+  * [Prerequisites](https://github.com/rhizomeicx/marvin#Prerequisites (Ubuntu))
 
 ## Prerequisites (Ubuntu)
 
