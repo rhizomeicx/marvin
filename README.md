@@ -44,7 +44,7 @@ $ sudo apt-get install dotnet-sdk-2.2
 
 **Build/Publish**
 <pre>
-$ dotnet build --runtime ubuntu.16.04-x64 --configuration Release
+$ dotnet publish -c Release -r ubuntu.16.04-x64
 </pre>
 
 ## Configuration
