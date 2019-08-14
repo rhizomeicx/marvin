@@ -18,8 +18,6 @@
   * [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-ubuntu)
   * [Installation-Ubuntu](https://github.com/rhizomeicx/marvin#installation-ubuntu)
 
-
-
 ## Prerequisites-Ubuntu
 
 **[Install .NET Core SDK]**
@@ -47,6 +45,21 @@ sudo apt-get install dotnet-sdk-2.2
 dotnet build --runtime ubuntu.16.04-x64 --configuration Release
 </pre>
 
+## Configuration
+Marvin is designed to be driven via some appconfig.
+
+<pre> nano /Marvin/Marvin-Ubuntu/appsettings.json </pre>
+
+default should look like this:
+<pre> 
+{
+  "LogPath": "/home/usr/Marvin/logs/log.log",
+  "Yeouido_Keystore": "/home/fir3fight/Marvin/config/yeouido/keystore/operator.icx",
+  "Yeouido_Daedric_Address": "cx58ca994194cf0c6a2a68b789d81c70484a5675b3",
+  "Yeouido_url": "https://bicon.net.solidwallet.io/api/v3"
+}
+</pre>
+Update the configuration to meet your needs
 
 ## Run - Ubuntu
 I have yet to successfully run a .NET Core application as a background Daemon on Ubuntu so next best thing is to have this run from cron
