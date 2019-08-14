@@ -16,9 +16,9 @@
 ## Table of Contents
 
   * [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-ubuntu)
-  * [Installation-Ubuntu](https://github.com/rhizomeicx/marvin#installation-ubuntu)
+  * [Installation- (Ubuntu)](https://github.com/rhizomeicx/marvin#installation-ubuntu)
   * [Configuration](https://github.com/rhizomeicx/marvin#configuration)
-  * [Run-Ubuntu](https://github.com/rhizomeicx/marvin#run-ubuntu)
+  * [Run - (Ubuntu)](https://github.com/rhizomeicx/marvin#run-ubuntu)
 
 ## Prerequisites-Ubuntu
 
