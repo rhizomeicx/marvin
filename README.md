@@ -49,7 +49,7 @@ dotnet build --runtime ubuntu.16.04-x64 --configuration Release
 
 
 ## Run - Ubuntu
-I have yet to successfully run a .NET Core as a background Daemon on Ubuntu so next best thing is to have this run on a cronjob.
+I have yet to successfully run a .NET Core application as a background Daemon on Ubuntu so next best thing is to have this run from cron
 
 <pre> crontab -e </pre>
 
