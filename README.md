@@ -38,7 +38,7 @@ $ sudo apt-get install dotnet-sdk-2.2
 
 ## Installation-Ubuntu
 
-<pre> cd /Marvin/Marvin-Ubuntu </pre>
+<pre>$ cd /Marvin/Marvin-Ubuntu </pre>
 
 **Build/Publish**
 <pre>
