@@ -15,9 +15,9 @@
 
 ## Table of Contents
 
-  * [Prerequisites](https://github.com/rhizomeicx/marvin#Prerequisites (Ubuntu))
+  * [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-ubuntu)
 
-## Prerequisites (Ubuntu)
+## Prerequisites-Ubuntu
 
 **[Install .NET Core SDK]**
 
