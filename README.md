@@ -66,7 +66,7 @@ Update the configuration to meet your needs
 ## Run-Ubuntu
 I have yet to successfully run a .NET Core application as a background Daemon on Ubuntu so next best thing is to have this run from cron
 
-<pre>4 crontab -e </pre>
+<pre>$ crontab -e </pre>
 
 see example of the crontab that is run every hour
 
