@@ -44,8 +44,8 @@ namespace Marvin
             _logger.Information($"Deadric updated tx hash: {result}");
             var getTransactionByHash = new GetTransactionByHash(_appsetting.Yeouido_url);
             var postResult = getTransactionByHash.Invoke(result).Result;
-            _logger.Information("------------------------------");
             _logger.Information("Finished Marvin...");
+            _logger.Information("------------------------------");
         }
 
         private long GetMeanPrices()
