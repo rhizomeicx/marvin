@@ -94,12 +94,21 @@ download & install https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.
 
 ## Installation-Windows
 
-open Command Prompt (windows start button+ cmd+enter)
-
+open Command Prompt terminal and naviated to:
 <pre>cd /Marvin/Marvin-Windows</pre>
 
 **Build/Publish**
 <pre>
 dotnet build --runtime win-x64 --configuration Release
 </pre>
+
+**Create Windows Service**
+#Create Windows Service
+see below example:
+
+<pre>
+sc create Marvin binPath="F:\dev\Marvin\Marvin\Marvin-Windows\bin\Release\netcoreapp2.2\win-x64\publish\Marvin-Windows.exe"
+</pre>
+
+
 
