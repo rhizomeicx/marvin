@@ -29,7 +29,7 @@ This is still a work in progress
     - [Installation](https://github.com/rhizomeicx/marvin#installation-windows)
     - [Configuration](https://github.com/rhizomeicx/marvin#configuration-windows)
     - [Run](https://github.com/rhizomeicx/marvin#run-windows)
-
+  * [Post Verification Test](https://github.com/rhizomeicx/marvin#post-verification-testing)
 ## Ubuntu
 
 ## Prerequisites-Ubuntu"
@@ -136,4 +136,19 @@ default should look like this:
 **Start Windows Service**
 <pre>
 sc start Marvin yourkeystorepassword
+</pre>
+
+
+
+##Post Verification Test
+confirmation of Marvin running succeessfully can be found in the logs (see log file in LogPath specified in Configuration.
+example log file output:
+
+<pre>
+2019-08-15 21:43:32.351 +08:00 [INF] Starting Marvin...
+2019-08-15 21:43:32.465 +08:00 [INF] ------------------------------
+2019-08-15 21:43:32.465 +08:00 [INF] Getting current price...
+2019-08-15 21:43:38.359 +08:00 [INF] ICXUSD current price: 5086328541551993856
+2019-08-15 21:43:38.726 +08:00 [INF] Updating Daedric...
+2019-08-15 21:43:39.994 +08:00 [INF] Deadric updated tx hash: 0x41f7ee3d9955e501058d6349df57c2c540409cf83462d8e5943e991d2c702fa9
 </pre>
