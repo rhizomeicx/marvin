@@ -81,3 +81,6 @@ see example of the crontab that is run every hour
 you can change this to run every minute to test it is working like so:
 
 <pre> * * * * * /usr/bin/dotnet /Marvin/Marvin-Ubuntu/bin/Release/netcoreapp2.2/ubuntu.16.04-x64/publish/Marvin-Ubuntu.dll "keystorepassword" </pre>
+
+
+## Windows
