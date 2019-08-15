@@ -17,11 +17,13 @@ This is still a work in progress
 **Marvin** is a price feed application (bot) designed to provide an hourly price update to a Daedric SCORE running on the ICON Public Blockchain (see here: https://github.com/iconation/Daedric). Marvin has been written in .Net Core 2.2 and is able to run on either Windows or Ubuntu.
 
 ## Table of Contents
+  * [Ubuntu Setup](https://github.com/rhizomeicx/marvin#ubuntu)
+    - [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-ubuntu)
+    - [Installation](https://github.com/rhizomeicx/marvin#installation-ubuntu)
+    - [Configuration](https://github.com/rhizomeicx/marvin#configuration)
+    - [Run](https://github.com/rhizomeicx/marvin#run-ubuntu)
 
-  * [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-ubuntu)
-  * [Installation- (Ubuntu)](https://github.com/rhizomeicx/marvin#installation-ubuntu)
-  * [Configuration](https://github.com/rhizomeicx/marvin#configuration)
-  * [Run - (Ubuntu)](https://github.com/rhizomeicx/marvin#run-ubuntu)
+## Ubuntu
 
 ## Prerequisites-Ubuntu
 *At the moment this guide assumes you already have a keystore file created. I am working on a utility app that will allow you to generate a new keystore/wallet and interact with basic features.*
