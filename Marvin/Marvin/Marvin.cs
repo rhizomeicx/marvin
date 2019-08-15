@@ -33,12 +33,19 @@ namespace Marvin
 
         public void Run()
         {
+            _logger.Information("Starting Marvin...");
+            _logger.Information("------------------------------");
+            _logger.Information("Getting current price...");
             var meanPrices = GetMeanPrices();
+            _logger.Information($"ICXUSD current price: {meanPrices}");
             var tx = CreateTransaction(meanPrices);
+            _logger.Information($"Updating Daedric...");
             var result = UpdateDaedric(tx);
+            _logger.Information($"Deadric updated tx hash: {result}");
             var getTransactionByHash = new GetTransactionByHash(_appsetting.Yeouido_url);
             var postResult = getTransactionByHash.Invoke(result).Result;
-            _logger.Information(JsonConvert.SerializeObject(postResult));
+            _logger.Information("------------------------------");
+            _logger.Information("Finished Marvin...");
         }
 
         private long GetMeanPrices()
