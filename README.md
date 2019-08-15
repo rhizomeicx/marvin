@@ -152,3 +152,5 @@ example log file output:
 2019-08-15 21:43:38.726 +08:00 [INF] Updating Daedric...
 2019-08-15 21:43:39.994 +08:00 [INF] Deadric updated tx hash: 0x41f7ee3d9955e501058d6349df57c2c540409cf83462d8e5943e991d2c702fa9
 </pre>
+
+Also confirm on ICON tracker: https://bicon.tracker.solidwallet.io/contract/cx58ca994194cf0c6a2a68b789d81c70484a5675b3
