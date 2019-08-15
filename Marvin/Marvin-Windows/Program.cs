@@ -11,7 +11,6 @@ namespace Marvin_Windows
     {
         static void Main()
         {
-            //  Marvin.Main.Start("Windows");
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {

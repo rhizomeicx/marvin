@@ -31,11 +31,11 @@ namespace Marvin_Windows
 
             _marvin = new Marvin.Marvin(appSettings, logger, args[0]);
             //adding this within a Task thread or Windows Services keeps Marvin stuck in 'Starting'
-            Task.Run(() => Initialise());
+            Task.Run(() => Initialise(appSettings.Price_Increment));
         }
-        private void Initialise()
+        private void Initialise(double priceIncrement)
         {
-            timer = new System.Timers.Timer(1000); //refresh transaction data every 10 minutes
+            timer = new System.Timers.Timer(priceIncrement); //refresh transaction data every 10 minutes
             timer.Elapsed += Timer_Elapsed;
 
             timer.Start();
@@ -65,7 +65,7 @@ namespace Marvin_Windows
         }
         AppSettings GetAppSettings()
         {
-            var appSettingsFilePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "/appsettings.json";
+            var appSettingsFilePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\appsettings.json";
 
             if (!File.Exists(appSettingsFilePath))
             {
