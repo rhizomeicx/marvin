@@ -22,10 +22,14 @@ This is still a work in progress
   * [Ubuntu Setup](https://github.com/rhizomeicx/marvin#ubuntu)
     - [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-ubuntu)
     - [Installation](https://github.com/rhizomeicx/marvin#installation-ubuntu)
-    - [Configuration](https://github.com/rhizomeicx/marvin#configuration)
+    - [Configuration](https://github.com/rhizomeicx/marvin#configuration-ubuntu)
     - [Run](https://github.com/rhizomeicx/marvin#run-ubuntu)
   * [Windows Setup](https://github.com/rhizomeicx/marvin#windows)
-
+    - [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-windows)
+    - [Installation](https://github.com/rhizomeicx/marvin#installation-windows)
+    - [Configuration](https://github.com/rhizomeicx/marvin#configuration-windows)
+    - [Run](https://github.com/rhizomeicx/marvin#run-windows)
+  * [Post Verification Test](https://github.com/rhizomeicx/marvin#Testing)
 ## Ubuntu
 
 ## Prerequisites-Ubuntu"
@@ -55,7 +59,7 @@ $ sudo apt-get install dotnet-sdk-2.2
 $ dotnet publish -c Release -r ubuntu.16.04-x64
 </pre>
 
-## Configuration
+## Configuration-Ubuntu
 Marvin is designed to be driven via some appconfig.
 
 <pre>$ nano /Marvin/Marvin-Ubuntu/appsettings.json </pre>
@@ -78,13 +82,13 @@ I have yet to successfully run a .NET Core application as a background Daemon on
 
 see example of the crontab that is run every hour
 
-<pre> 0 * * * * /usr/bin/dotnet /Marvin/Marvin-Ubuntu/bin/Release/netcoreapp2.2/ubuntu.16.04-x64/publish/Marvin-Ubuntu.dll "keystorepassword" </pre>
+<pre> 0 * * * * /usr/bin/dotnet /Marvin/Marvin-Ubuntu/bin/Release/netcoreapp2.2/ubuntu.16.04-x64/publish/Marvin-Ubuntu.dll "yourkeystorepassword" </pre>
 
 you can change this to run every minute to test it is working like so:
 
 <pre> * * * * * /usr/bin/dotnet /Marvin/Marvin-Ubuntu/bin/Release/netcoreapp2.2/ubuntu.16.04-x64/publish/Marvin-Ubuntu.dll "keystorepassword" </pre>
 
-## Windows WIP *************************************
+## Windows
 
 ## Prerequisites-Ubuntu
 
@@ -94,7 +98,7 @@ download & install https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.
 
 ## Installation-Windows
 
-open Command Prompt terminal and naviated to:
+open Command Prompt (as Administrator) and naviated to:
 <pre>cd /Marvin/Marvin-Windows</pre>
 
 **Build/Publish**
@@ -106,8 +110,47 @@ dotnet build --runtime win-x64 --configuration Release
 
 see below for an example if Marvin was located in "F:\dev\Marvin"
 <pre>
-sc create Marvin binPath= "F:\dev\Marvin\Marvin\Marvin-Windows\bin\Release\netcoreapp2.2\win-x64\Marvin-Windows.exe --keystorepassword" start=auto  
+sc create Marvin binPath= "F:\dev\Marvin\Marvin\Marvin-Windows\bin\Release\netcoreapp2.2\win-x64\Marvin-Windows.exe" start=auto  
+</pre>
+
+## Configuration-Windows
+Marvin is designed to be driven via some appconfig.
+
+open in a text editor: /Marvin/Marvin-Ubuntu/appsettings.json
+
+default should look like this:
+<pre> 
+{
+  "LogPath": "F:/dev/marvin/log.log",
+  "Yeouido_Keystore": "F:/dev/Marvin/config/yeouido/keystore/operator.icx",
+  "Yeouido_Daedric_Address": "cx58ca994194cf0c6a2a68b789d81c70484a5675b3",
+  "Yeouido_url": "https://bicon.net.solidwallet.io/api/v3",
+  "Price_Increment": 3600000
+}
+</pre>
+
+*Price_Increment* is how often to fetch for new prices default once per hour. 
+
+## Run-Windows
+
+**Start Windows Service**
+<pre>
+sc start Marvin yourkeystorepassword
 </pre>
 
 
 
+## Testing
+Confirmation of Marvin running can be found in the logs (see log file in LogPath specified in Configuration.
+example log file output:
+
+<pre>
+2019-08-15 21:43:32.351 +08:00 [INF] Starting Marvin...
+2019-08-15 21:43:32.465 +08:00 [INF] ------------------------------
+2019-08-15 21:43:32.465 +08:00 [INF] Getting current price...
+2019-08-15 21:43:38.359 +08:00 [INF] ICXUSD current price: 5086328541551993856
+2019-08-15 21:43:38.726 +08:00 [INF] Updating Daedric...
+2019-08-15 21:43:39.994 +08:00 [INF] Deadric updated tx hash: 0x41f7ee3d9955e501058d6349df57c2c540409cf83462d8e5943e991d2c702fa9
+</pre>
+
+Also confirm on ICON tracker: https://bicon.tracker.solidwallet.io/contract/cx58ca994194cf0c6a2a68b789d81c70484a5675b3
