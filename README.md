@@ -23,7 +23,7 @@ This is still a work in progress
     - [Configuration](https://github.com/rhizomeicx/marvin#configuration)
     - [Run](https://github.com/rhizomeicx/marvin#run-ubuntu)
 
-## Ubuntu
+<h1> Ubuntu </h1>
 
 ## Prerequisites-Ubuntu
 *At the moment this guide assumes you already have a keystore file created. I am working on a utility app that will allow you to generate a new keystore/wallet and interact with basic features.*
@@ -82,5 +82,4 @@ you can change this to run every minute to test it is working like so:
 
 <pre> * * * * * /usr/bin/dotnet /Marvin/Marvin-Ubuntu/bin/Release/netcoreapp2.2/ubuntu.16.04-x64/publish/Marvin-Ubuntu.dll "keystorepassword" </pre>
 
-
-## Windows
+<h1> Windows </h1>
