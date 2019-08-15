@@ -84,7 +84,7 @@ you can change this to run every minute to test it is working like so:
 
 <pre> * * * * * /usr/bin/dotnet /Marvin/Marvin-Ubuntu/bin/Release/netcoreapp2.2/ubuntu.16.04-x64/publish/Marvin-Ubuntu.dll "keystorepassword" </pre>
 
-## Windows
+## Windows WIP *************************************
 
 ## Prerequisites-Ubuntu
 
@@ -104,9 +104,9 @@ dotnet build --runtime win-x64 --configuration Release
 
 **Create Windows Service**
 
-see below for an example if Marvin was n "F\dev\Marvin"
+see below for an example if Marvin was located in "F:\dev\Marvin"
 <pre>
-sc create Marvin binPath="F:\dev\Marvin\Marvin\Marvin-Windows\bin\Release\netcoreapp2.2\win-x64\publish\Marvin-Windows.exe"
+sc create Marvin binPath= "F:\dev\Marvin\Marvin\Marvin-Windows\bin\Release\netcoreapp2.2\win-x64\Marvin-Windows.exe --keystorepassword" start=auto  
 </pre>
 
 
