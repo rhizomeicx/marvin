@@ -76,7 +76,7 @@ I have yet to successfully run a .NET Core application as a background Daemon on
 
 see example of the crontab that is run every hour
 
-<pre> 1 * * * * /usr/bin/dotnet /Marvin/Marvin-Ubuntu/bin/Release/netcoreapp2.2/ubuntu.16.04-x64/publish/Marvin-Ubuntu.dll "keystorepassword" </pre>
+<pre> * 1 * * * /usr/bin/dotnet /Marvin/Marvin-Ubuntu/bin/Release/netcoreapp2.2/ubuntu.16.04-x64/publish/Marvin-Ubuntu.dll "keystorepassword" </pre>
 
 you can change this to run every minute to test it is working like so:
 
