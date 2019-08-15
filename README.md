@@ -16,17 +16,19 @@ This is still a work in progress
 
 **Marvin** is a price feed application (bot) designed to provide an hourly price update to a Daedric SCORE running on the ICON Public Blockchain (see here: https://github.com/iconation/Daedric). Marvin has been written in .Net Core 2.2 and is able to run on either Windows or Ubuntu.
 
+*At the moment this guide assumes you already have a keystore file created. I am working on a utility app that will allow you to generate a new keystore/wallet and interact with basic features.*
+
 ## Table of Contents
   * [Ubuntu Setup](https://github.com/rhizomeicx/marvin#ubuntu)
     - [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-ubuntu)
     - [Installation](https://github.com/rhizomeicx/marvin#installation-ubuntu)
     - [Configuration](https://github.com/rhizomeicx/marvin#configuration)
     - [Run](https://github.com/rhizomeicx/marvin#run-ubuntu)
+  * [Windows Setup](https://github.com/rhizomeicx/marvin#windows)
 
 ## Ubuntu
 
-## Prerequisites-Ubuntu
-*At the moment this guide assumes you already have a keystore file created. I am working on a utility app that will allow you to generate a new keystore/wallet and interact with basic features.*
+## Prerequisites-Ubuntu"
 
 **[Install .NET Core SDK]**
 
@@ -83,3 +85,21 @@ you can change this to run every minute to test it is working like so:
 <pre> * * * * * /usr/bin/dotnet /Marvin/Marvin-Ubuntu/bin/Release/netcoreapp2.2/ubuntu.16.04-x64/publish/Marvin-Ubuntu.dll "keystorepassword" </pre>
 
 ## Windows
+
+## Prerequisites-Ubuntu
+
+**[Install .NET Core SDK]**
+
+download & install https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.401-windows-x64-installer
+
+## Installation-Windows
+
+open Command Prompt (windows start button+ cmd+enter)
+
+<pre>cd /Marvin/Marvin-Windows</pre>
+
+**Build/Publish**
+<pre>
+dotnet build --runtime win-x64 --configuration Release
+</pre>
+
