@@ -36,7 +36,7 @@ namespace Marvin_Ubuntu
 
         static AppSettings GetAppSettings()
         {
-            var appSettingsFilePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\appsettings.json";
+            var appSettingsFilePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "/appsettings.json";
 
             if (!File.Exists(appSettingsFilePath))
             {
