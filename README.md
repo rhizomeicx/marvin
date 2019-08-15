@@ -103,9 +103,7 @@ dotnet build --runtime win-x64 --configuration Release
 </pre>
 
 **Create Windows Service**
-#Create Windows Service
-see below example:
-
+see below for an example if Marvin was n "F\dev\Marvin"
 <pre>
 sc create Marvin binPath="F:\dev\Marvin\Marvin\Marvin-Windows\bin\Release\netcoreapp2.2\win-x64\publish\Marvin-Windows.exe"
 </pre>
