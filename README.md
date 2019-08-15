@@ -29,7 +29,7 @@ This is still a work in progress
     - [Installation](https://github.com/rhizomeicx/marvin#installation-windows)
     - [Configuration](https://github.com/rhizomeicx/marvin#configuration-windows)
     - [Run](https://github.com/rhizomeicx/marvin#run-windows)
-  * [Post Verification Test](https://github.com/rhizomeicx/marvin#post-verification-testing)
+  * [Post Verification Test](https://github.com/rhizomeicx/marvin#Testing)
 ## Ubuntu
 
 ## Prerequisites-Ubuntu"
@@ -140,8 +140,8 @@ sc start Marvin yourkeystorepassword
 
 
 
-##Post Verification Test
-confirmation of Marvin running succeessfully can be found in the logs (see log file in LogPath specified in Configuration.
+## Testing
+Confirmation of Marvin running can be found in the logs (see log file in LogPath specified in Configuration.
 example log file output:
 
 <pre>
