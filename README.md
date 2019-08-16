@@ -9,6 +9,10 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+<a href="http://http://teamcity.mine.bz/viewType.html?buildTypeId=Marvin_Build&guest=1">
+<img src="http://teamcity.mine.bz/app/rest/builds/buildType:(id:Marvin_Build)/statusIcon"/>
+</a>
+
 ## Introduction
 
 **Marvin** is a price feed application (bot) designed to provide an hourly price update to a Daedric SCORE running on the ICON Public Blockchain (see here: https://github.com/iconation/Daedric). Marvin has been written in .Net Core 2.2 and is able to run on either Windows or Ubuntu.
