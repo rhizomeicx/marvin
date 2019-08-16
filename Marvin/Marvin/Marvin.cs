@@ -33,8 +33,8 @@ namespace Marvin
 
         public void Run()
         {
-            _logger.Information("Starting Marvin...");
             _logger.Information("------------------------------");
+            _logger.Information("Starting Marvin...");
             _logger.Information("Getting current price...");
             var meanPrices = GetMeanPrices();
             _logger.Information($"ICXUSD current price: {meanPrices}");
@@ -44,8 +44,6 @@ namespace Marvin
             _logger.Information($"Deadric updated tx hash: {result}");
             var getTransactionByHash = new GetTransactionByHash(_appsetting.Yeouido_url);
             var postResult = getTransactionByHash.Invoke(result).Result;
-            _logger.Information("Finished Marvin...");
-            _logger.Information("------------------------------");
         }
 
         private long GetMeanPrices()
@@ -72,8 +70,6 @@ namespace Marvin
 
             var tax = builder.Build();
 
-
-
            return builder.Build();
         }
 
@@ -87,8 +83,16 @@ namespace Marvin
 
         private string GetPrivateKey()
         {
-            var keyStore = KeyStore.Load(_password, _appsetting.Yeouido_Keystore);
-            return keyStore.PrivateKey.ToString();
+            try
+            {
+                var keyStore = KeyStore.Load(_password, _appsetting.Yeouido_Keystore);
+                return keyStore.PrivateKey.ToString();
+            }
+            catch(Exception e)
+            {
+                _logger.Error($"Marvin was unable to open the KeyStore, did you enter the correct password? \n {e}");
+                throw new Exception(e.ToString());
+            }
         }
     }
 }

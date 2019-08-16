@@ -16,17 +16,18 @@ namespace Marvin_Ubuntu
             try
             {
                 var appSettings = GetAppSettings();
+
                 var logger = new LoggerConfiguration()
                                   .MinimumLevel.Information()
                                   .WriteTo.File(appSettings.LogPath, rollingInterval: RollingInterval.Day, rollOnFileSizeLimit: true)
                                   .CreateLogger();
 
-                _marvin = new Marvin.Marvin(appSettings, logger, args[0]);
+                _marvin = new Marvin.Marvin(appSettings, logger, "dfsd");
                 _marvin.Run();
             }
             catch (Exception ex)
             {
-                Log.Error(ex, $"I think you ought to know I'm feeling very depressed : {ex.Message}");
+                Log.Error($"Marvin experianced an error while running \n check the log for more detail \n : {ex.Message}");
             }
             finally
             {
@@ -44,9 +45,9 @@ namespace Marvin_Ubuntu
             }
 
             var appSettingsContent = File.ReadAllText(appSettingsFilePath);
+
             if (string.IsNullOrEmpty(appSettingsContent))
-                throw new Exception("Do you want me to sit in a corner and rust, or just fall apart where I’m standing? \n" +
-                                     "BTW the appsettings.json file is empty dummy");
+                throw new Exception("Marvin was unable to read from the appsettings.json file. Is it empty?");
 
             return JsonConvert.DeserializeObject<AppSettings>(appSettingsContent);
         }
