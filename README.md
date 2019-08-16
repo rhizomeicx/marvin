@@ -7,9 +7,10 @@
 
 <h1 align="center">Marvin : Price Bot for <a href="https://github.com/iconation/Daedric" />Daedric : Price Feed SCORE </a> </h1>
 
-![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
-
-<img src="http://teamcity.mine.bz/app/rest/builds/buildType:(id:Marvin_Build)/statusIcon"/>
+<div class="float-right">
+  ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
+  <img src="http://teamcity.mine.bz/app/rest/builds/buildType:(id:Marvin_Build)/statusIcon"/>
+</div>
 
 
 ## Introduction
