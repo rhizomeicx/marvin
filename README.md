@@ -9,7 +9,7 @@
 
 <table>
    <tr>
-       <td>[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) </td>
+       <td> [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) </td>
        <td> <img src="http://teamcity.mine.bz/app/rest/builds/buildType:(id:Marvin_Build)/statusIcon"/> </td>
   </tr>
  </table>
