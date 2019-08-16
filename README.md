@@ -113,7 +113,7 @@ sc create Marvin binPath= "F:\dev\Marvin\Marvin\Marvin-Windows\bin\Release\netco
 ## Configuration-Windows
 Marvin is designed to be driven via some appconfig.
 
-open in a text editor: /Marvin/Marvin-Ubuntu/appsettings.json
+open in a text editor: /Marvin/Marvin-Windows/appsettings.json
 
 default should look like this:
 <pre> 
