@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marvin-Ubuntu", "Marvin-Ubu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marvin-Windows", "Marvin-Windows\Marvin-Windows.csproj", "{DB8ACA59-4F30-4049-B5E2-ACA52CAB162C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedEntities", "SharedEntities\SharedEntities.csproj", "{BD28C3A8-BBFA-4E2D-9C0B-53601B3C18C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedEntities", "SharedEntities\SharedEntities.csproj", "{BD28C3A8-BBFA-4E2D-9C0B-53601B3C18C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet", "Wallet\Wallet.csproj", "{3CDD687B-90B2-4FDA-9FF8-6D6E18190AE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BD28C3A8-BBFA-4E2D-9C0B-53601B3C18C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD28C3A8-BBFA-4E2D-9C0B-53601B3C18C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD28C3A8-BBFA-4E2D-9C0B-53601B3C18C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CDD687B-90B2-4FDA-9FF8-6D6E18190AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CDD687B-90B2-4FDA-9FF8-6D6E18190AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CDD687B-90B2-4FDA-9FF8-6D6E18190AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CDD687B-90B2-4FDA-9FF8-6D6E18190AE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
