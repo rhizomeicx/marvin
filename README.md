@@ -98,7 +98,7 @@ download & install https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.
 
 ## Installation-Windows
 
-open Command Prompt (as Administrator) and naviated to:
+open Command Prompt (as Administrator) and navigate to:
 <pre>cd /Marvin/Marvin-Windows</pre>
 
 **Build/Publish**
