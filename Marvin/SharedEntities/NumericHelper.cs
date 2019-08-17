@@ -9,13 +9,14 @@ namespace SharedEntities
     {
         public static string Loop2ICX(string bigInt, bool trimTrailing = true)
         {
+     
             BigInteger icxloop = BigInteger.Parse(bigInt);
 
-            double result = (double)icxloop;
+            BigInteger numericBase = BigInteger.Parse("10");
 
-            double icx = result / Math.Pow(10, 18);
+            BigInteger result = icxloop / BigInteger.Pow(numericBase, 18);
 
-            return icx.ToString();
+            return result.ToString();
         }
     }
 }

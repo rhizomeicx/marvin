@@ -111,8 +111,11 @@ namespace Wallet
                 {
                     Console.WriteLine("Checking balance please wait...");
                     var wallet = IconSDK.Account.Wallet.Load(keyStorePassword, keyStorePath);
+
+                    BigInteger amount = 10 * Consts.ICX2Loop;
+
                     var balance  = wallet.GetBalance().Result;
-                    Console.WriteLine($"Your current ICX balance is : {NumericHelper.Loop2ICX(balance.ToString())} ICX");
+                    Console.WriteLine($"Your current ICX balance is : {NumericHelper.Loop2ICX(amount.ToString())} ICX");
                 }
                 catch(Exception e)
                 {
