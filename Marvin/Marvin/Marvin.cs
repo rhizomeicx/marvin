@@ -46,17 +46,17 @@ namespace Marvin
             var postResult = getTransactionByHash.Invoke(result).Result;
         }
 
-        private long GetMeanPrices()
+        private double GetMeanPrices()
         {
-            List<long> price = new List<long> { PriceFrom.Binance("ICXUSDT"),
+            List<double> price = new List<double> { PriceFrom.Binance("ICXUSDT"),
                                                 PriceFrom.CoinMarketCap("icon"),
                                                 PriceFrom.Coingecko("icon"),
                                                 PriceFrom.Velic()}.Where(x => x != 0).ToList();
 
-            return Convert.ToInt64(price.Select(d => (double)d / price.Count).Sum());
+            return price.Select(d => d / price.Count).Sum();
         }
 
-        private Transaction CreateTransaction(long price)
+        private Transaction CreateTransaction(double price)
         {
             var builder = new CallTransactionBuilder
             {
@@ -66,7 +66,9 @@ namespace Marvin
                 StepLimit = NumericsHelper.ICX2Loop("0.000000001"),
                 Method = "post"
             };
-            builder.Params["value"] = price.ToString();
+            //For a general purpose solution to remove scientific notation on a double to string value you need to preserve 339 places
+            //https://stackoverflow.com/questions/1546113/double-to-string-conversion-without-scientific-notation
+            builder.Params["value"] = price.ToString("0." + new string('#', 339));
 
             var tax = builder.Build();
 

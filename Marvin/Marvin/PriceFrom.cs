@@ -20,14 +20,14 @@ namespace Marvin.bots
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        public static long Binance(string ticker)
+        public static double Binance(string ticker)
         {
             try
             {
                 var json = JsonConvert.DeserializeObject(Get("https://api.binance.com/api/v1/ticker/24hr?symbol=" + ticker));
                 var jObject = (JObject)json;
                 var price = (jObject["lastPrice"].Value<double>());
-                return Convert.ToInt64(1 / price * Math.Pow(10, 18));
+                return 1 / price * Math.Pow(10, 18);
             }
             catch
             {
@@ -35,14 +35,14 @@ namespace Marvin.bots
             }
         }
 
-        public static long Coingecko(string ticker)
+        public static double Coingecko(string ticker)
         {
             try
             {
                 var json = JsonConvert.DeserializeObject(Get("https://api.coingecko.com/api/v3/coins/" + ticker + "?localization=false"));
                 var jObject = (JObject)json;
                 var price = (jObject["market_data"]["current_price"]["usd"].Value<double>());
-                return Convert.ToInt64(1 / price * Math.Pow(10, 18));
+                return 1 / price * Math.Pow(10, 18);
             }
             catch
             {
@@ -51,13 +51,13 @@ namespace Marvin.bots
 
         }
 
-        public static long CoinMarketCap(string ticker)
+        public static double CoinMarketCap(string ticker)
         {
             try
             {
                 var json = JArray.Parse(Get("https://api.coinmarketcap.com/v1/ticker/" + ticker));
                 var price = json.First["price_usd"].Value<double>();
-                return Convert.ToInt64(1 / price * Math.Pow(10, 18));
+                return 1 / price * Math.Pow(10, 18);
             }
             catch
             {
@@ -65,14 +65,14 @@ namespace Marvin.bots
             }
         }
 
-        public static long Velic()
+        public static double Velic()
         {
             try
             {
                 var json = JArray.Parse(Get("https://api.velic.io/api/v1/public/ticker/"));
                 var jObj = json.Where(b => (string)b["base_coin"] == "USDT" && (string)b["match_coin"] == "ICX").ToList();
                 var price = jObj.Select(p => p["recent_price"].Value<double>()).First();
-                return Convert.ToInt64(1 / price * Math.Pow(10, 18));
+                return 1 / price * Math.Pow(10, 18);
             }
             catch
             {
