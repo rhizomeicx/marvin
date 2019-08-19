@@ -46,17 +46,22 @@ namespace Marvin
             var postResult = getTransactionByHash.Invoke(result).Result;
         }
 
-        private long GetMeanPrices()
+        private BigInteger GetMeanPrices()
         {
-            List<long> price = new List<long> { PriceFrom.Binance("ICXUSDT"),
+            List<BigInteger> price = new List<BigInteger> { PriceFrom.Binance("ICXUSDT"),
                                                 PriceFrom.CoinMarketCap("icon"),
                                                 PriceFrom.Coingecko("icon"),
                                                 PriceFrom.Velic()}.Where(x => x != 0).ToList();
 
-            return Convert.ToInt64(price.Select(d => (double)d / price.Count).Sum());
+         
+
+            BigInteger sum = price.Aggregate((currentSum, item) => currentSum + item);
+            BigInteger avg = sum / price.Count();
+            return avg;
+;
         }
 
-        private Transaction CreateTransaction(long price)
+        private Transaction CreateTransaction(BigInteger price)
         {
             var builder = new CallTransactionBuilder
             {
