@@ -53,7 +53,7 @@ namespace Marvin
                                                 PriceFrom.Coingecko("icon"),
                                                 PriceFrom.Velic()}.Where(x => x != 0).ToList();
 
-            return price.Select(d => d / price.Count).Sum();
+            return Math.Round(price.Select(d => d / price.Count).Sum());
         }
 
         private Transaction CreateTransaction(double price)
