@@ -60,6 +60,7 @@ namespace Marvin
         {
             var builder = new CallTransactionBuilder
             {
+                NID = 1,
                 PrivateKey = GetPrivateKey(),
                 To = _appsetting.Daedric_Address,
                 StepLimit = NumericsHelper.ICX2Loop("0.000000001"),
