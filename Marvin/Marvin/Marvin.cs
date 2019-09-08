@@ -42,7 +42,7 @@ namespace Marvin
             _logger.Information($"Updating Daedric...");
             var result = UpdateDaedric(tx);
             _logger.Information($"Deadric updated tx hash: {result}");
-            var getTransactionByHash = new GetTransactionByHash(_appsetting.Yeouido_url);
+            var getTransactionByHash = new GetTransactionByHash(_appsetting.Network_Url);
             var postResult = getTransactionByHash.Invoke(result).Result;
         }
 
@@ -60,9 +60,9 @@ namespace Marvin
         {
             var builder = new CallTransactionBuilder
             {
-                NID = 3,
+                NID = 1,
                 PrivateKey = GetPrivateKey(),
-                To = _appsetting.Yeouido_Daedric_Address,
+                To = _appsetting.Daedric_Address,
                 StepLimit = NumericsHelper.ICX2Loop("0.000000001"),
                 Method = "post"
             };
@@ -77,7 +77,7 @@ namespace Marvin
 
         private Hash32 UpdateDaedric(Transaction tx)
         {
-            var transactionRequest = SendTransaction.Create(_appsetting.Yeouido_url);
+            var transactionRequest = SendTransaction.Create(_appsetting.Network_Url);
             var sendResponse = transactionRequest.Invoke(tx).Result;
 
             return sendResponse;
@@ -87,7 +87,7 @@ namespace Marvin
         {
             try
             {
-                var keyStore = KeyStore.Load(_password, _appsetting.Yeouido_Keystore);
+                var keyStore = KeyStore.Load(_password, _appsetting.Keystore);
                 return keyStore.PrivateKey.ToString();
             }
             catch(Exception e)
