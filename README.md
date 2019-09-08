@@ -69,9 +69,9 @@ default should look like this:
 <pre> 
 {
   "LogPath": "/home/usr/Marvin/logs/log.log",
-  "Yeouido_Keystore": "/home/usr/Marvin/config/yeouido/keystore/operator.icx",
-  "Yeouido_Daedric_Address": "cx58ca994194cf0c6a2a68b789d81c70484a5675b3",
-  "Yeouido_url": "https://bicon.net.solidwallet.io/api/v3"
+  "Keystore": "/home/usr/Marvin/config/yeouido/keystore/operator.icx",
+  "Daedric_Address": "cx58ca994194cf0c6a2a68b789d81c70484a5675b3",
+  "Network_Url": "https://bicon.net.solidwallet.io/api/v3"
 }
 </pre>
 Update the configuration to meet your needs
@@ -123,9 +123,9 @@ default should look like this:
 <pre> 
 {
   "LogPath": "F:/dev/marvin/log.log",
-  "Yeouido_Keystore": "F:/dev/Marvin/config/yeouido/keystore/operator.icx",
-  "Yeouido_Daedric_Address": "cx58ca994194cf0c6a2a68b789d81c70484a5675b3",
-  "Yeouido_url": "https://bicon.net.solidwallet.io/api/v3",
+  "Keystore": "F:/dev/Marvin/config/mainnet/keystore/operator.icx",
+  "Daedric_Address": "cxcc00000000000000000000000000000000000",
+  "Network_Url": "https://ctz.solidwallet.io/api/v3",
   "Price_Increment": 3600000
 }
 </pre>
