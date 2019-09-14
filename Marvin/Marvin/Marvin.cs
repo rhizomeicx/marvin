@@ -6,13 +6,13 @@ using IconSDK.Helpers;
 using IconSDK.RPCs;
 using IconSDK.Types;
 using Marvin.bots;
-using Newtonsoft.Json;
 using Serilog.Core;
 using SharedEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using static IconSDK.RPCs.GetTransactionByHashResponseMessage;
 
 namespace Marvin
 {
@@ -30,8 +30,13 @@ namespace Marvin
             _logger = logger;
             _password = pass;
         }
+        public Marvin(AppSettings appSetting, Logger logger)
+        {
+            _appsetting = appSetting;
+            _logger = logger;
+        }
 
-        public void Run()
+        public void Run(bool testNet = false)
         {
             _logger.Information("------------------------------");
             _logger.Information("Starting Marvin...");
@@ -42,8 +47,19 @@ namespace Marvin
             _logger.Information($"Updating Daedric...");
             var result = UpdateDaedric(tx);
             _logger.Information($"Deadric updated tx hash: {result}");
-            var getTransactionByHash = new GetTransactionByHash(_appsetting.Network_Url);
-            var postResult = getTransactionByHash.Invoke(result).Result;
+
+            TransactionInfo postResult = null;
+            try
+            {
+                var getTransactionByHash = new GetTransactionByHash(_appsetting.Network_Url);
+                postResult = getTransactionByHash.Invoke(result).Result;
+                _logger.Information($"Transaction info : {postResult.ToString()}");
+            }
+            catch (Exception ex)
+            {
+                _logger.Information("Error retrieving Transaction info, swallowing error");
+            }
+            _logger.Information("Completed");
         }
 
         private double GetMeanPrices()
@@ -56,11 +72,11 @@ namespace Marvin
             return Math.Round(price.Select(d => d / price.Count).Sum());
         }
 
-        private Transaction CreateTransaction(double price)
+        private Transaction CreateTransaction(double price, bool testNet = false)
         {
             var builder = new CallTransactionBuilder
             {
-                NID = 1,
+                NID = !_appsetting.testTransactions ? 1 : 3, //Pass 3 for testNet
                 PrivateKey = GetPrivateKey(),
                 To = _appsetting.Daedric_Address,
                 StepLimit = NumericsHelper.ICX2Loop("0.000000001"),
@@ -85,15 +101,22 @@ namespace Marvin
 
         private string GetPrivateKey()
         {
-            try
+            if (!string.IsNullOrEmpty(_appsetting.Keystore))
             {
-                var keyStore = KeyStore.Load(_password, _appsetting.Keystore);
-                return keyStore.PrivateKey.ToString();
+                try
+                {
+                    var keyStore = KeyStore.Load(_password, _appsetting.Keystore);
+                    return keyStore.PrivateKey.ToString();
+                }
+                catch (Exception e)
+                {
+                    _logger.Error($"Marvin was unable to open the KeyStore, did you enter the correct password? \n {e}");
+                    throw new Exception(e.ToString());
+                }
             }
-            catch(Exception e)
+            else
             {
-                _logger.Error($"Marvin was unable to open the KeyStore, did you enter the correct password? \n {e}");
-                throw new Exception(e.ToString());
+                return _appsetting.PrivateKey;
             }
         }
     }

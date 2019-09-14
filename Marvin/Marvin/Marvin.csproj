@@ -2,7 +2,7 @@
 
 <PropertyGroup>
 	<OutputType>Library</OutputType>
-	<TargetFramework>netcoreapp2.2</TargetFramework>
+	<TargetFramework>netcoreapp2.1</TargetFramework>
 	<RuntimeIdentifiers>win10-x64;ubuntu.16.04-x64</RuntimeIdentifiers> 
 	<StartupObject />
 	<ApplicationIcon />
@@ -17,16 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IconSDK.Net" Version="1.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
-    <PackageReference Include="Nethereum.KeyStore" Version="3.4.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="Serilog" Version="2.8.0" />
-    <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
-	<PackageReference Include="Microsoft.Windows.Compatibility" Version="2.1.1" />
-	<PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,7 +25,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Update="Microsoft.NETCore.App" Version="2.2.6" />
+    <PackageReference Update="Microsoft.NETCore.App" />
   </ItemGroup>
 
 </Project>
