@@ -12,6 +12,8 @@ using Amazon.SecretsManager;
 using Amazon.SecretsManager.Model;
 using System.IO;
 using Amazon;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
@@ -32,11 +34,11 @@ namespace AWSMarvin_Lambda
         {
             LambdaLogger.Log("Starting" + Environment.NewLine);
 
-            AppSettings testSettings = new AppSettings()
+            AppSettings appSettings = new AppSettings()
             {
                 PrivateKey = GetPrivateKey(),
-                //Daedric_Address = "cx58ca994194cf0c6a2a68b789d81c70484a5675b3",
-                //Network_Url = "https://bicon.net.solidwallet.io/api/v3",
+                //Test Daedric_Address = "cx58ca994194cf0c6a2a68b789d81c70484a5675b3",
+                //Test Network_Url = "https://bicon.net.solidwallet.io/api/v3",
                 Daedric_Address= "cxcc711062b732ed14954008da8a5b5193b4d48618",
                 Network_Url= "https://ctz.solidwallet.io/api/v3",
                 testTransactions = false,
@@ -48,7 +50,7 @@ namespace AWSMarvin_Lambda
                               .WriteTo.LambdaLoggerSink()
                               .CreateLogger();
 
-            _marvin = new Marvin.Marvin(testSettings, logger);
+            _marvin = new Marvin.Marvin(appSettings, logger);
             _marvin.Run();
             return "OK";
         }
@@ -57,7 +59,6 @@ namespace AWSMarvin_Lambda
         {
             string secretName = "PrivateKey";
             string region = "ap-southeast-2";
-            string secret = "";
 
             MemoryStream memoryStream = new MemoryStream();
 
@@ -114,19 +115,24 @@ namespace AWSMarvin_Lambda
                 throw;
             }
 
+            string secretJsonString = "";
+
             // Decrypts secret using the associated KMS CMK.
             // Depending on whether the secret is a string or binary, one of these fields will be populated.
             if (response.SecretString != null)
             {
-                secret = response.SecretString;
+                secretJsonString = response.SecretString;
             }
             else
             {
                 memoryStream = response.SecretBinary;
                 StreamReader reader = new StreamReader(memoryStream);
-                secret = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(reader.ReadToEnd()));
+                secretJsonString = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(reader.ReadToEnd()));
             }
 
+            var secretData = (JObject)JsonConvert.DeserializeObject(secretJsonString);
+            string secret = secretData[secretName].Value<string>();
+            
             return secret;
         }
     }
