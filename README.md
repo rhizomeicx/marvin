@@ -21,21 +21,21 @@
 **UPDATE:** Wallet feature has been created. Will write up basic usage shortly. 
 
 ## Table of Contents
-  * [Ubuntu Setup](https://github.com/salvation-al/marvin#ubuntu)
-    - [Prerequisites](https://github.com/salvation-al/marvin#prerequisites-ubuntu)
-    - [Installation](https://github.com/salvation-al/marvin#installation-ubuntu)
-    - [Configuration](https://github.com/salvation-al/marvin#configuration-ubuntu)
-    - [Run](https://github.com/salvation-al/marvin#run-ubuntu)
-  * [Windows Setup](https://github.com/salvation-al/marvin#windows)
-    - [Prerequisites](https://github.com/salvation-al/marvin#prerequisites-windows)
-    - [Installation](https://github.com/salvation-al/marvin#installation-windows)
-    - [Configuration](https://github.com/salvation-al/marvin#configuration-windows)
-    - [Run](https://github.com/salvation-al/marvin#run-windows)
-  * [Amazon Web Services](https://github.com/salvation-al/marvin#amazon-web-services)
-    - [Prerequisites](https://github.com/salvation-al/marvin#prerequisites-for-aws)
-    - [Publish](https://github.com/salvation-al/marvin#publish-to-aws)
-    - [Scheduling](https://github.com/salvation-al/marvin#scheduling)
-  * [Post Verification Test](https://github.com/salvation-al/marvin#Testing)
+  * [Ubuntu Setup](https://github.com/rhizomeicx/marvin#ubuntu)
+    - [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-ubuntu)
+    - [Installation](https://github.com/rhizomeicx/marvin#installation-ubuntu)
+    - [Configuration](https://github.com/rhizomeicx/marvin#configuration-ubuntu)
+    - [Run](https://github.com/rhizomeicx/marvin#run-ubuntu)
+  * [Windows Setup](https://github.com/rhizomeicx/marvin#windows)
+    - [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-windows)
+    - [Installation](https://github.com/rhizomeicx/marvin#installation-windows)
+    - [Configuration](https://github.com/rhizomeicx/marvin#configuration-windows)
+    - [Run](https://github.com/rhizomeicx/marvin#run-windows)
+  * [Amazon Web Services](https://github.com/rhizomeicx/marvin#amazon-web-services)
+    - [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-for-aws)
+    - [Publish](https://github.com/rhizomeicx/marvin#publish-to-aws)
+    - [Scheduling](https://github.com/rhizomeicx/marvin#scheduling)
+  * [Post Verification Test](https://github.com/rhizomeicx/marvin#Testing)
 ## Ubuntu
 
 ## Prerequisites-Ubuntu"
@@ -209,4 +209,4 @@ example log file output:
 2019-08-15 21:43:39.994 +08:00 [INF] Deadric updated tx hash: 0x41f7ee3d9955e501058d6349df57c2c540409cf83462d8e5943e991d2c702fa9
 </pre>
 
-Also confirm on ICON tracker: https://bicon.tracker.solidwallet.io/contract/cx58ca994194cf0c6a2a68b789d81c70484a5675b3
+Also confirm on ICON tracker: https://ctz.solidwallet.io/contract/cxcc711062b732ed14954008da8a5b5193b4d48618
