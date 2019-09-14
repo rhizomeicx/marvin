@@ -209,4 +209,4 @@ example log file output:
 2019-08-15 21:43:39.994 +08:00 [INF] Deadric updated tx hash: 0x41f7ee3d9955e501058d6349df57c2c540409cf83462d8e5943e991d2c702fa9
 </pre>
 
-Also confirm on ICON tracker: https://ctz.solidwallet.io/contract/cxcc711062b732ed14954008da8a5b5193b4d48618
+Also confirm on ICON tracker: https://tracker.icon.foundation/contract/cxcc711062b732ed14954008da8a5b5193b4d48618
