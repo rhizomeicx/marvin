@@ -33,6 +33,7 @@ namespace Marvin_Windows
             //adding this within a Task thread or Windows Services keeps Marvin stuck in 'Starting'
             Task.Run(() => Initialise(appSettings.Price_Increment));
         }
+
         private void Initialise(double priceIncrement)
         {
             timer = new System.Timers.Timer(priceIncrement); //refresh transaction data every 10 minutes
