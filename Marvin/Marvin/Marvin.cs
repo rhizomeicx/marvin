@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using static IconSDK.RPCs.GetTransactionByHashResponseMessage;
 
 namespace Marvin
 {
@@ -46,8 +47,18 @@ namespace Marvin
             _logger.Information($"Updating Daedric...");
             var result = UpdateDaedric(tx);
             _logger.Information($"Deadric updated tx hash: {result}");
-            var getTransactionByHash = new GetTransactionByHash(_appsetting.Network_Url);
-            var postResult = getTransactionByHash.Invoke(result).Result;
+
+            TransactionInfo postResult = null;
+            try
+            {
+                var getTransactionByHash = new GetTransactionByHash(_appsetting.Network_Url);
+                postResult = getTransactionByHash.Invoke(result).Result;
+                _logger.Information($"Transaction info : {postResult.ToString()}");
+            }
+            catch (Exception ex)
+            {
+                _logger.Information("Error retrieving Transaction info, swallowing error");
+            }
             _logger.Information("Completed");
         }
 

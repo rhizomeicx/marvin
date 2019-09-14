@@ -37,12 +37,10 @@ namespace AWSMarvin_Lambda
             AppSettings appSettings = new AppSettings()
             {
                 PrivateKey = GetPrivateKey(),
-                //Test Daedric_Address = "cx58ca994194cf0c6a2a68b789d81c70484a5675b3",
-                //Test Network_Url = "https://bicon.net.solidwallet.io/api/v3",
-                Daedric_Address= "cxcc711062b732ed14954008da8a5b5193b4d48618",
-                Network_Url= "https://ctz.solidwallet.io/api/v3",
-                testTransactions = false,
-                Price_Increment = 3600000
+                Daedric_Address= Environment.GetEnvironmentVariable("Daedric_Address"),
+                Network_Url= Environment.GetEnvironmentVariable("Network_Url"),
+                testTransactions = bool.Parse(Environment.GetEnvironmentVariable("Test_Transactions")),
+                Price_Increment = int.Parse(Environment.GetEnvironmentVariable("Price_Increment"))
             };
             
             var logger = new LoggerConfiguration()
