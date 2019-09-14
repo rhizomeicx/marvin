@@ -21,21 +21,21 @@
 **UPDATE:** Wallet feature has been created. Will write up basic usage shortly. 
 
 ## Table of Contents
-  * [Ubuntu Setup](https://github.com/salvation-al/marvin#ubuntu)
-    - [Prerequisites](https://github.com/salvation-al/marvin#prerequisites-ubuntu)
-    - [Installation](https://github.com/salvation-al/marvin#installation-ubuntu)
-    - [Configuration](https://github.com/salvation-al/marvin#configuration-ubuntu)
-    - [Run](https://github.com/salvation-al/marvin#run-ubuntu)
-  * [Windows Setup](https://github.com/salvation-al/marvin#windows)
-    - [Prerequisites](https://github.com/salvation-al/marvin#prerequisites-windows)
-    - [Installation](https://github.com/salvation-al/marvin#installation-windows)
-    - [Configuration](https://github.com/salvation-al/marvin#configuration-windows)
-    - [Run](https://github.com/salvation-al/marvin#run-windows)
-  * [Amazon Web Services](https://github.com/salvation-al/marvin#amazon-web-services)
-    - [Prerequisites](https://github.com/salvation-al/marvin#prerequisites-for-aws)
-    - [Publish](https://github.com/salvation-al/marvin#publish-to-aws)
-    - [Scheduling](https://github.com/salvation-al/marvin#scheduling)
-  * [Post Verification Test](https://github.com/salvation-al/marvin#Testing)
+  * [Ubuntu Setup](https://github.com/rhizomeicx/marvin#ubuntu)
+    - [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-ubuntu)
+    - [Installation](https://github.com/rhizomeicx/marvin#installation-ubuntu)
+    - [Configuration](https://github.com/rhizomeicx/marvin#configuration-ubuntu)
+    - [Run](https://github.com/rhizomeicx/marvin#run-ubuntu)
+  * [Windows Setup](https://github.com/rhizomeicx/marvin#windows)
+    - [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-windows)
+    - [Installation](https://github.com/rhizomeicx/marvin#installation-windows)
+    - [Configuration](https://github.com/rhizomeicx/marvin#configuration-windows)
+    - [Run](https://github.com/rhizomeicx/marvin#run-windows)
+  * [Amazon Web Services](https://github.com/rhizomeicx/marvin#amazon-web-services)
+    - [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-for-aws)
+    - [Publish](https://github.com/rhizomeicx/marvin#publish-to-aws)
+    - [Scheduling](https://github.com/rhizomeicx/marvin#scheduling)
+  * [Post Verification Test](https://github.com/rhizomeicx/marvin#Testing)
 ## Ubuntu
 
 ## Prerequisites-Ubuntu"
@@ -157,31 +157,34 @@ download & install [https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2
 configure and install AWS SDK for Visual Studio [https://aws.amazon.com/visualstudio/](https://aws.amazon.com/visualstudio/)
 
 ## Publish-to-AWS
-Open Visual Studio, right click on the AWSMarvin-Lambda project and click Publish to AWS Lambda
-Enter the function name AWSMarvin-Lambda, select .NET Core 2.1, click Next
-Under Role dropdown select New Role based on AWS managed policy : AWSLambdaBasicExecutionRole, then click upload.
+
+**NOTE : Make sure the regions used are all the same, you may have to update the code to retrieve the private key from your region**
+
+ - Open Visual Studio, right click on the AWSMarvin-Lambda project and click Publish to AWS Lambda
+ - Enter the function name AWSMarvin-Lambda, select .NET Core 2.1, click Next 
+ - Under Role dropdown select New Role based on AWS managed policy : AWSLambdaBasicExecutionRole, then click
+   upload.
 
 **Configure Environment Variables**
 
-Open AWS Developers Console at [https://console.aws.amazon.com/lambda/home](https://console.aws.amazon.com/lambda/home), click on the new function
-Go down to environment variables and enter the 4 settings for Daedric_Address, Network_Url, Price_Increment, Test_Transactions
+- Open AWS Developers Console at [https://console.aws.amazon.com/lambda/home](https://console.aws.amazon.com/lambda/home), click on the new function we created
+- Go down to environment variables and enter the 4 settings for Daedric_Address, Network_Url, Price_Increment, Test_Transactions
 
 **Configure Private Key**
 
-Open AWS Secret Manager at [https://console.aws.amazon.com/secretsmanager/home](https://console.aws.amazon.com/secretsmanager/home)
-Click Store a new secret, select Other type of secrets, enter PrivateKey, and it's value
-Click Next, enter a name for the secret, click Next, Click Store
-**NOTE : Make sure the regions used are all the same, you may have to update the code to retrieve the private key in the code**
+- Open AWS Secret Manager at [https://console.aws.amazon.com/secretsmanager/home](https://console.aws.amazon.com/secretsmanager/home)
+- Click Store a new secret, select Other type of secrets, enter PrivateKey, and it's value
+- Click Next, enter a name for the secret, click Next, Click Store
 
 **Permissions**
 
-Open AWS IAM at [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home)
-Click Roles, then click lambda_exec_AWSMarvin-Lambda
-Click Add Inline Policy
-Under Service select Secrets Manager
-Under Actions->Read select GetSecretValue 
-Under Resources select All Resources
-Select Review Policy, enter a policy name, click Create
+- Open AWS IAM at [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home)
+- Click Roles, then click lambda_exec_AWSMarvin-Lambda
+- Click Add Inline Policy
+- Under Service select Secrets Manager
+- Under Actions->Read select GetSecretValue 
+- Under Resources select All Resources
+- Select Review Policy, enter a policy name, click Create
 
 ## Scheduling
 
