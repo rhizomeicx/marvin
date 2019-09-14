@@ -1,3 +1,4 @@
+
 <p align="center">
   <img 
     src="https://avatars1.githubusercontent.com/u/53635700?s=400&v=4" 
@@ -14,23 +15,27 @@
 
 ## Introduction
 
-**Marvin** is a price feed application (bot) designed to provide an hourly price update to a Daedric SCORE running on the ICON Public Blockchain (see here: https://github.com/iconation/Daedric). Marvin has been written in .Net Core 2.2 and is able to run on either Windows or Ubuntu.
+**Marvin** is a price feed application (bot) designed to provide an hourly price update to a Daedric SCORE running on the ICON Public Blockchain (see here: https://github.com/iconation/Daedric). Marvin has been written in .Net Core 2.1 and is able to run on Windows, Ubuntu or on Amazon Web Services.
 
 *At the moment this guide assumes you already have a keystore file created. I am working on a utility app that will allow you to generate a new keystore/wallet and interact with basic features.* 
 **UPDATE:** Wallet feature has been created. Will write up basic usage shortly. 
 
 ## Table of Contents
-  * [Ubuntu Setup](https://github.com/rhizomeicx/marvin#ubuntu)
-    - [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-ubuntu)
-    - [Installation](https://github.com/rhizomeicx/marvin#installation-ubuntu)
-    - [Configuration](https://github.com/rhizomeicx/marvin#configuration-ubuntu)
-    - [Run](https://github.com/rhizomeicx/marvin#run-ubuntu)
-  * [Windows Setup](https://github.com/rhizomeicx/marvin#windows)
-    - [Prerequisites](https://github.com/rhizomeicx/marvin#prerequisites-windows)
-    - [Installation](https://github.com/rhizomeicx/marvin#installation-windows)
-    - [Configuration](https://github.com/rhizomeicx/marvin#configuration-windows)
-    - [Run](https://github.com/rhizomeicx/marvin#run-windows)
-  * [Post Verification Test](https://github.com/rhizomeicx/marvin#Testing)
+  * [Ubuntu Setup](https://github.com/salvation-al/marvin#ubuntu)
+    - [Prerequisites](https://github.com/salvation-al/marvin#prerequisites-ubuntu)
+    - [Installation](https://github.com/salvation-al/marvin#installation-ubuntu)
+    - [Configuration](https://github.com/salvation-al/marvin#configuration-ubuntu)
+    - [Run](https://github.com/salvation-al/marvin#run-ubuntu)
+  * [Windows Setup](https://github.com/salvation-al/marvin#windows)
+    - [Prerequisites](https://github.com/salvation-al/marvin#prerequisites-windows)
+    - [Installation](https://github.com/salvation-al/marvin#installation-windows)
+    - [Configuration](https://github.com/salvation-al/marvin#configuration-windows)
+    - [Run](https://github.com/salvation-al/marvin#run-windows)
+  * [Amazon Web Services](https://github.com/salvation-al/marvin#amazon-web-services)
+    - [Prerequisites](https://github.com/salvation-al/marvin#prerequisites-for-aws)
+    - [Publish](https://github.com/salvation-al/marvin#publish-to-aws)
+    - [Scheduling](https://github.com/salvation-al/marvin#scheduling)
+  * [Post Verification Test](https://github.com/salvation-al/marvin#Testing)
 ## Ubuntu
 
 ## Prerequisites-Ubuntu"
@@ -47,7 +52,7 @@ $ sudo dpkg -i packages-microsoft-prod.deb
 <pre>
 $ sudo apt-get install apt-transport-https
 $ sudo apt-get update
-$ sudo apt-get install dotnet-sdk-2.2
+$ sudo apt-get install dotnet-sdk-2.1
 </pre>
 
 
@@ -95,7 +100,7 @@ you can change this to run every minute to test it is working like so:
 
 **[Install .NET Core SDK]**
 
-download & install https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.401-windows-x64-installer
+download & install [https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.1.802-windows-x64-installer](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.1.802-windows-x64-installer)
 
 ## Installation-Windows
 
@@ -139,7 +144,52 @@ default should look like this:
 sc start Marvin yourkeystorepassword
 </pre>
 
+## Amazon-Web-Services
 
+## Prerequisites-for-AWS
+
+**[.NET Core SDK 2.1]** (AWS only supports 2.1 at this point)
+**[AWS Developers Account]**
+**[AWS SDK for Visual Studio 2017/2019]**
+**[Basic understanding of AWS Permissions]**
+
+download & install [https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.1.802-windows-x64-installer](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.1.802-windows-x64-installer)
+configure and install AWS SDK for Visual Studio [https://aws.amazon.com/visualstudio/](https://aws.amazon.com/visualstudio/)
+
+## Publish-to-AWS
+Open Visual Studio, right click on the AWSMarvin-Lambda project and click Publish to AWS Lambda
+Enter the function name AWSMarvin-Lambda, select .NET Core 2.1, click Next
+Under Role dropdown select New Role based on AWS managed policy : AWSLambdaBasicExecutionRole, then click upload.
+
+**Configure Environment Variables**
+
+Open AWS Developers Console at [https://console.aws.amazon.com/lambda/home](https://console.aws.amazon.com/lambda/home), click on the new function
+Go down to environment variables and enter the 4 settings for Daedric_Address, Network_Url, Price_Increment, Test_Transactions
+
+**Configure Private Key**
+
+Open AWS Secret Manager at [https://console.aws.amazon.com/secretsmanager/home](https://console.aws.amazon.com/secretsmanager/home)
+Click Store a new secret, select Other type of secrets, enter PrivateKey, and it's value
+Click Next, enter a name for the secret, click Next, Click Store
+**NOTE : Make sure the regions used are all the same, you may have to update the code to retrieve the private key in the code**
+
+**Permissions**
+
+Open AWS IAM at [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home)
+Click Roles, then click lambda_exec_AWSMarvin-Lambda
+Click Add Inline Policy
+Under Service select Secrets Manager
+Under Actions->Read select GetSecretValue 
+Under Resources select All Resources
+Select Review Policy, enter a policy name, click Create
+
+## Scheduling
+
+To schedule the Lambda function to run on a schedule open [https://console.aws.amazon.com/cloudwatch/home](https://console.aws.amazon.com/cloudwatch/home)
+
+Click Events->Rules, Click Create Rule, Schedule and select the schedule you want
+Click Add Target, in the function dropdown select AWSMarvin-Lambda
+Click Configure, enter a name and click Create
 
 ## Testing
 Confirmation of Marvin running can be found in the logs (see log file in LogPath specified in Configuration.
