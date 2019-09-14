@@ -198,7 +198,7 @@ Click Configure, enter a name and click Create
 Confirmation of Marvin running can be found in the logs (see log file in LogPath specified in Configuration.
 example log file output:  
 
-**NOTE**: Please allow for the full 1 hour to confirm Marvin is working as this is how it is configured. Alternatively, stop the service and change the "Price_Increment": 3600000 to a lower setting for testing purposes. 
+**NOTE (for Windows)**: Please allow for the full 1 hour to confirm Marvin is working as this is how it is configured. Alternatively, stop the service and change the "Price_Increment": 3600000 to a lower setting for testing purposes. 
 
 <pre>
 2019-08-15 21:43:32.351 +08:00 [INF] Starting Marvin...
