@@ -155,7 +155,7 @@ configure and install AWS SDK for Visual Studio [https://aws.amazon.com/visualst
 
 ## Publish-to-AWS
 
-**NOTE : Make sure the regions used are all the same, you may have to update the code to retrieve the private key from your region**
+**NOTE : Make sure the regions used are all the same**
 
  - Open Visual Studio, right click on the AWSMarvin-Lambda project and click Publish to AWS Lambda
  - Enter the function name AWSMarvin-Lambda, select .NET Core 2.1, click Next 
@@ -165,7 +165,7 @@ configure and install AWS SDK for Visual Studio [https://aws.amazon.com/visualst
 **Configure Environment Variables**
 
 - Open AWS Developers Console at [https://console.aws.amazon.com/lambda/home](https://console.aws.amazon.com/lambda/home), click on the new function we created
-- Go down to environment variables and enter the 4 settings for Daedric_Address, Network_Url, Price_Increment, Test_Transactions
+- Go down to environment variables and enter the 4 settings for Daedric_Address, Network_Url, Test_Transactions
 
 **Configure Private Key**
 
