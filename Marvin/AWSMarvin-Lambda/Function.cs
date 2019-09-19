@@ -40,7 +40,6 @@ namespace AWSMarvin_Lambda
                 Daedric_Address= Environment.GetEnvironmentVariable("Daedric_Address"),
                 Network_Url= Environment.GetEnvironmentVariable("Network_Url"),
                 testTransactions = bool.Parse(Environment.GetEnvironmentVariable("Test_Transactions")),
-                Price_Increment = int.Parse(Environment.GetEnvironmentVariable("Price_Increment"))
             };
             
             var logger = new LoggerConfiguration()
@@ -56,7 +55,7 @@ namespace AWSMarvin_Lambda
         public static string GetPrivateKey()
         {
             string secretName = "PrivateKey";
-            string region = "ap-southeast-2";
+            string region = Environment.GetEnvironmentVariable("AWS_REGION");
 
             MemoryStream memoryStream = new MemoryStream();
 

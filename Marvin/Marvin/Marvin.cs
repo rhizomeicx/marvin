@@ -47,18 +47,12 @@ namespace Marvin
             _logger.Information($"Updating Daedric...");
             var result = UpdateDaedric(tx);
             _logger.Information($"Deadric updated tx hash: {result}");
-
-            TransactionInfo postResult = null;
-            try
+            ExceptionHelper.TryNoException(() =>
             {
                 var getTransactionByHash = new GetTransactionByHash(_appsetting.Network_Url);
-                postResult = getTransactionByHash.Invoke(result).Result;
+                TransactionInfo postResult = getTransactionByHash.Invoke(result).Result;
                 _logger.Information($"Transaction info : {postResult.ToString()}");
-            }
-            catch (Exception ex)
-            {
-                _logger.Information("Error retrieving Transaction info, swallowing error");
-            }
+            }, _logger);
             _logger.Information("Completed");
         }
 
