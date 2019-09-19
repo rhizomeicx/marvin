@@ -165,7 +165,7 @@ configure and install AWS SDK for Visual Studio [https://aws.amazon.com/visualst
 **Configure Environment Variables**
 
 - Open AWS Developers Console at [https://console.aws.amazon.com/lambda/home](https://console.aws.amazon.com/lambda/home), click on the new function we created
-- Go down to environment variables and enter the 4 settings for Daedric_Address, Network_Url, Test_Transactions
+- Go down to environment variables and enter the 3 settings for Daedric_Address, Network_Url, Test_Transactions
 
 **Configure Private Key**
 
