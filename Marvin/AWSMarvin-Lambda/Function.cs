@@ -54,7 +54,7 @@ namespace AWSMarvin_Lambda
 
         public static string GetPrivateKey()
         {
-            string secretName = "PrivateKey";
+            string secretName = "MarvinKeystoreKey";
             string region = Environment.GetEnvironmentVariable("AWS_REGION");
 
             MemoryStream memoryStream = new MemoryStream();
