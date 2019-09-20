@@ -171,7 +171,7 @@ configure and install AWS SDK for Visual Studio [https://aws.amazon.com/visualst
 
 - Open AWS Secret Manager at [https://console.aws.amazon.com/secretsmanager/home](https://console.aws.amazon.com/secretsmanager/home)
 - Click Store a new secret, select Other type of secrets, enter PrivateKey, and it's value
-- Click Next, enter a PrivateKey for the name for the secret, click Next, Click Store
+- Click Next, enter PrivateKey for the name for the secret policy, click Next, Click Store
 
 **Permissions**
 
