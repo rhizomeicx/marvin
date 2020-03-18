@@ -65,7 +65,7 @@ $ dotnet publish -c Release -r ubuntu.16.04-x64
 ## Configuration-Ubuntu
 Marvin is designed to be driven via some appconfig.
 
-<pre>$ nano /Marvin/Marvin-Ubuntu/appsettings.json </pre>
+<pre>$ nano /Marvin/Marvin-Ubuntu/bin/Release/netcoreapp2.1/ubuntu.16.04-x64/publish/ </pre>
 
 default should look like this:
 <pre> 
@@ -76,7 +76,7 @@ default should look like this:
   "Network_Url": "https://bicon.net.solidwallet.io/api/v3"
 }
 </pre>
-Update the configuration to meet your needs
+Update the configuration to meet your needs. 
 
 ## Run-Ubuntu
 I have yet to successfully run a .NET Core application as a background Daemon on Ubuntu so next best thing is to have this run from cron
