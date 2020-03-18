@@ -65,7 +65,7 @@ $ dotnet publish -c Release -r ubuntu.16.04-x64
 ## Configuration-Ubuntu
 Marvin is designed to be driven via some appconfig.
 
-<pre>$ nano /Marvin/Marvin-Ubuntu/bin/Release/netcoreapp2.1/ubuntu.16.04-x64/publish/ </pre>
+<pre>$ nano /Marvin/Marvin-Ubuntu/bin/Release/netcoreapp2.1/ubuntu.16.04-x64/publish/appsettings.json </pre>
 
 default should look like this:
 <pre> 
